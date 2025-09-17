@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+
+    </form>
+    <hr>
+    <h3>A kosár tartalma</h3>
+    <ul></ul>
+    
+    <script>
+        const cart={
+            items:[
+                {name:'Laptop',price:1200,quantity:1},
+                {name:'Headphone',price:200,quantity:1}
+            ]
+        }
+
+        const addToCart=(cart,newItem)=>{
+            let itemFound=false
+            cart.items.forEach(item=>{
+                if(item.name==newItem.name){
+                    item.quantity+=newItem.quantity//mennyiség növelése ha létezik
+                    itemFound=true
+                }
+            })
+            !itemFound && cart.items.push(newItem)//ha nincs benne akkor beleteszi
+
+            return {...cart}//új objektumot adunk vissza, h immutábilisan kezeljük a kosarat
+        }
+
+        //const newItem={name:'Laptop',price:1200,quantity:2}
+
+        //const updatedCart=addToCart(cart,newItem)
+
+        //console.log(updatedCart);
+
+    </script>
+</body>
+</html>
